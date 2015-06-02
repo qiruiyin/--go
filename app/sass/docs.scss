@@ -1,0 +1,270 @@
+@charset 'utf-8';
+
+$use-bounceInUp:  true;
+$use-bounceOutUp: true;
+$use-bounceInLeft:true;
+$use-bounceInRight:true;
+$use-fadeInUp:    true;
+$use-fadeInDown:  true;
+$use-fadeOutUp:   true;
+
+@import "sandal/core",
+        "animate-sass/animate",      
+        "mixins", "base", "frames";
+
+.center-block {
+  @include center-block();
+}
+
+// 加载页
+.loading {
+  width: 90px;
+  margin: auto;
+  margin-top: 40%;
+  text-align: center;
+  font-size: 1.5em;
+  & > img {
+    width: 100%;
+    animation-iteration-count: infinite;
+  }
+  & > span {
+    line-height: 2;
+  }
+}
+
+
+#pageWorking {
+  background-image: url(../img/bg-working.png);
+  .finger {
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    animation-duration: 0.5s;
+    animation-delay: 0.5s;
+    @include max-screen(320px) {
+      right: 5%;
+    }
+  }
+  .num {
+    top: 50px;
+    background-size: 100%;
+    @include iphone4 {
+      top: 30px;
+    }
+  }
+  & > .s1-slide {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% auto;
+    @include square(100%);
+  }
+  .s1-copy-writer{
+    background-image: url(../img/bg-table-s1.png);
+    & > .finger{
+      width: (214px/2);
+    }
+    & > .num {
+      padding-left: 15px;
+      @include size(208px, 238px, 1);
+      @include abs-center(208px / 4);
+      background-image: url(../img/tips-copy-writer.png);
+    }
+  }
+  .s1-designer{
+    top: -100%;
+    background-image: url(../img/bg-table-s2.png);
+    & > .finger{
+      width: (190px/2);
+    }
+    & > .num {
+      padding-left: 15px;
+      @include size(214px, 236px, 1);
+      @include abs-center(214px / 4);
+      background-image: url(../img/tips-designer.png);
+    }
+  }
+  .s1-developer{
+    top: -200%;
+    background-image: url(../img/bg-table-s3.png);
+    & > .finger{
+      width: (172px/2);
+    }
+    & > .num {
+      @include size(254px, 232px, 1);
+      @include abs-center(254px / 4);
+      background-image: url(../img/tips-developer.png);
+    }
+  }
+}
+
+#pageRelease{
+  background-image: url(../img/bg-release.png);
+  & > .text-release {
+    bottom: 330px;
+    @include max-screen(320px){
+      bottom: 270px;
+    }
+    width: (550px / 2);
+    @include abs-center(550px / 4);
+  }
+  & > .cup-left, & > .cup-right {
+    width: (75px /2);
+    position: absolute;
+    left: 50%;
+    bottom: 120px;
+    @include max-screen(320px) {
+      bottom: 95px;
+    }
+  }
+  & > .cup-left {
+    margin-left: 75px / 2 * -1;
+  }
+  & > .beer-flower {
+    width: (84px / 2);
+    animation-delay: 1s;
+    @include abs-center(84px / 4);
+    bottom: 180px;
+    @include max-screen(320px) {
+      bottom: 156px;
+    }
+  }
+}
+
+#pageHeard{
+  background-image: url(../img/bg-heard.png);
+  & > .sunshine {
+    @include size(434px / 4, 202px / 2);
+    position: absolute;
+    bottom: 244px;
+    @include max-screen(320px) {
+      bottom: 180px;
+    }
+    left: 20px;
+    background: url(../img/sunshine.png) no-repeat;
+    background-size: auto 100%;
+    animation: sun-roll 20s linear infinite;
+  }
+  & > .text-heard {
+    width: (476px / 2);
+    position: absolute;
+    left: 30px; top: 50px;
+    @include  max-screen(320px) {
+      width: (476px / 3);
+      top: 30px;
+    }
+  }
+}
+
+#pageWaiting{
+  background-image: url(../img/bg-waiting.png);
+  & > .green-head {
+    @include size(164px / 2, 312px / 2);
+    position: absolute;
+    bottom: 0;
+    right: -(330px / 4);
+    background: url(../img/green-person.png) no-repeat;
+    background-size: auto 100%;
+    animation-delay: 3s;
+    &.move-in {
+      animation: green-head 1s steps(2,end) 2,
+                 green-head-move 2s ease forwards;
+    }
+  }
+  & > .text-waiting {
+    width: 250px;
+    @include abs-center(500px / 4);
+    animation-duration: 1.5s;
+    top: 80px;
+    @include max-screen(320px) {
+      top: 20px;
+      width: 200px;
+      @include abs-center(400px / 4);
+    }
+  }
+  & > .text-waiting-2 {
+    width: (548px / 2);
+    animation-delay: 4s;
+    @include abs-center(548px / 4);
+    top: 50px;
+    @include max-screen(320px) {
+      top: 20px;
+      width: 200px;
+      @include abs-center(400px / 4);
+    }
+  }
+}
+
+#pageExpect{
+  background-image: url(../img/bg-expect.png);
+  & > .text-expect {
+    width: (544px / 2);
+    @include abs-center(544px / 4);
+    z-index: 50;
+    top: 50px;
+    @include max-screen(320px) {
+      width: (544px / 3);
+      @include abs-center(544px / 3 / 2);
+    }
+    @include iphone4 {
+      top: 20px;
+    }
+  }
+  & > .sunshine {
+    @include size(434px / 4, 202px / 2);
+    position: absolute;
+    bottom: 244px;
+    @include max-screen(320px) {
+      bottom: 180px;
+    }
+    left: 20px;
+    transform-origin: 160% 170%;
+    animation: sunshine 3s ease-out 1 forwards;
+  }
+  .sun-roll {
+    width: 100%;
+    animation: sun-roll 20s linear infinite;
+  }
+  & > .hand-expect {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+#pageInvite{
+  background-image: url(../img/bg-invite.png);
+  & > .text-chequan {
+    width: (516px / 2);
+    @include abs-center(516px / 4);
+    top: 50px;
+    @include max-screen(320px) {
+      width: (516px / 3);
+      @include abs-center(516px / 3 / 2);
+    }
+    @include iphone4 {
+      top: 20px;
+    }
+  }
+  & > .btn-download {
+    width: 200px;
+    height: 44px;
+    text-align: center;
+    font-size: 20px;
+    background-color: transparent;
+    border: 2px solid currentColor;
+    border-radius: 4px;
+    line-height: 40px;
+    position: absolute;
+    display: block;
+    left: 50%;
+    margin-left: -100px;
+  }
+  & > .btn-android {
+    color: #489d01;
+    bottom: 112px;
+    @include iphone4{
+      bottom: 50px;
+    }
+  }
+}

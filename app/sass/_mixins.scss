@@ -1,0 +1,30 @@
+// 设计稿中的纵向位置占比
+@function resp($area) {
+  $vw: 750px;
+  @return round(percentage($area / $vw));
+}
+
+@mixin size($w, $h, $retina: 0) {
+  @if $retina == 1 {
+    $w: $w / 2;
+    $h: $h / 2;
+  }
+  width: $w;
+  height: $h;
+}
+
+@mixin square($w){
+  @include size($w, $w);
+}
+
+@mixin abs-center($w:0, $h:0) {
+  position: absolute;
+  @if $w != auto {
+    left: 50%;
+    margin-left: $w * -1;
+  }
+  @if $h != 0 {
+    top: 50%;
+    margin-top: $h * -1;
+  }
+}
